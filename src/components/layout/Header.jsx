@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -9,6 +9,10 @@ const Header = () => {
           <img src="./images/logo.svg" className="mx-auto h-16" alt="로고" />
         </Link>
       </h1>
+
+      <div className="absolute right-5 rounded-lg bg-white text-black top-7 p-1">
+        <button type="button">로그아웃</button>
+      </div>
     </header>
   );
 };

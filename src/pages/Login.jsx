@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import InputField from "../components/InputField";
-import LoginButton from "../components/LoginButton";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import InputField from '../components/InputField';
+import LoginButton from '../components/LoginButton';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   // logic
@@ -20,8 +20,8 @@ const Login = () => {
    * 5. handleLogin에서 email, password 의 값을 확인한다.
    */
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   // const [formData, setFormData] = useState({
   //   email: "",
@@ -33,7 +33,7 @@ const Login = () => {
     // const newFormData = { ...formData, [field]: inputValue };
     // setFormData(newFormData);
 
-    if (field === "email") {
+    if (field === 'email') {
       setEmail(inputValue);
     } else {
       setPassword(inputValue);
@@ -42,8 +42,8 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
-    console.log("email", email);
-    console.log("password", password);
+    console.log('email', email);
+    console.log('password', password);
     // TODO: 로그인 기능 구현
   };
 
@@ -81,14 +81,14 @@ const Login = () => {
         {/* END: 폼 영역 */}
         <div className="flex justify-center gap-1 py-6">
           <p className="text-churead-gray-600">계정이 없으신가요?</p>
-          <Link to="/sign-in" className="text-churead-blue">
+          <Link to="/signup" className="text-churead-blue">
             가입하기
           </Link>
         </div>
         <p className="text-gray-500 text-sm relative mb-4">
-          {" "}
-          <i className="block w-full h-[1px] bg-churead-gray-300 bg-opacity-15 absolute top-1/2 transform -translate-y-1/2" />{" "}
-          <span className="bg-churead-black relative z-10 px-2"> or </span>{" "}
+          {' '}
+          <i className="block w-full h-[1px] bg-churead-gray-300 bg-opacity-15 absolute top-1/2 transform -translate-y-1/2" />{' '}
+          <span className="bg-churead-black relative z-10 px-2"> or </span>{' '}
         </p>
         {/* START: 소셜 로그인 영역 */}
         <LoginButton category="socialLogin" text="Continue with Google" />

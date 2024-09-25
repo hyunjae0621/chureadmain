@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-const PostInput = ({ userName, userProfileImage, defaultValue, onChange }) => {
+const PostInput = ({
+  userName = 'Anonymous',
+  userProfileImage = 'https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y',
+  defaultValue = '',
+  onChange,
+}) => {
   // logic
+
+  const textareRef = useRef(null);
+
   const [value, setValue] = useState(defaultValue);
 
   const hanldeChange = (event) => {
@@ -9,6 +17,14 @@ const PostInput = ({ userName, userProfileImage, defaultValue, onChange }) => {
     setValue(value);
     onChange(value);
   };
+
+  useEffect(() => {
+    console.log(textareRef);
+    textareRef.current && textareRef.current.focus();
+    const length = value.length;
+    textareRef.current && textareRef.current.setSelectionRange(length, length);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // view
   return (
@@ -26,6 +42,7 @@ const PostInput = ({ userName, userProfileImage, defaultValue, onChange }) => {
           </div>
           <div className="pt-1 text-sm">
             <textarea
+              ref={textareRef}
               rows={4}
               placeholder="문구를 작성하세요"
               value={value}

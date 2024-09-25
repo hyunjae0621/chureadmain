@@ -7,13 +7,28 @@ const Post = ({ onPost }) => {
   const history = useNavigate();
   const [churead, setChuread] = useState("");
 
+/**1. 텍스트에서 불필요한 공백 제거하기
+ * 2. 제거한 텍스트를 기준으로 빈 스트링인지 체크하기
+ * 3. 빈스트링인 경우 알림창에 "츄레드를 입력해주세요" 라고 메시지 뜨기
+ * 4. 빈 스트링이 아닌 경우 기존처럼 아이템 추가하기 
+ */
+
   const handleChange = (value) => {
     setChuread(value);
   };
 
   const handlePost = (event) => {
     event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
-    onPost(churead); // 부모에게 churead입력값 넘겨주기
+
+    const resultChuread = churead.trim();
+
+    if (!resultChuread) {
+      alert("메시지 입력하라구") 
+      
+      return
+    }
+
+    onPost(resultChuread); // 부모에게 churead입력값 넘겨주기
     history("/"); // home화면으로 이동
   };
 

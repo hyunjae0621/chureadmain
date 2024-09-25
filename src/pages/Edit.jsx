@@ -15,9 +15,7 @@ const Edit = ({editItem, onEdited}) => {
   
   const handleEdit = (event) => {
     event.preventDefault(); // 폼 제출시 새로고침 방지 메소드
-    
-
-    const editedItem = { ...editItem, churead }
+    const editedItem = { ...editItem, churead:churead }
     // console.log("🚀 ~ Edit ~ churead:", churead)
     onEdited({editedItem})
     // onPost(churead); // 부모에게 churead입력값 넘겨주기

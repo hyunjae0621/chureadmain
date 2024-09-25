@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SignIn from "./pages/SignIn";
+// import SignIn from "./pages/SignIn";
 import Post from "./pages/Post";
 import Profile from "./pages/Profile";
 import { useState } from "react";
 import Edit from "./pages/Edit";
+import SignUp from "./pages/SignUp";
 
 function App() {
   // logic
@@ -27,7 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home churead={churead} onEdit={(data)=> setEditItem(data)} editedItem={editedItem}/>} />
             <Route path="/login" element={<Login />} />
-            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/post" element={<Post onPost={handlePost} />} />
             <Route path="/edit" element={<Edit editItem={editItem} onEdited={(data) => setEditedItem(data)} />} />
             <Route path="/profile" element={<Profile />} />
